@@ -7,11 +7,13 @@ specifiers:
   '@mui/material': ^5.11.6
   '@mui/x-data-grid': ^5.17.20
   '@next/font': 13.1.5
+  '@types/js-cookie': ^3.0.2
   '@types/node': 18.11.18
   '@types/react': 18.0.27
   '@types/react-dom': 18.0.10
   eslint: 8.32.0
   eslint-config-next: 13.1.5
+  js-cookie: ^3.0.1
   mongoose: ^6.8.4
   next: 13.1.5
   react: 18.2.0
@@ -32,6 +34,7 @@ dependencies:
   '@types/react-dom': 18.0.10
   eslint: 8.32.0
   eslint-config-next: 13.1.5_7uibuqfxkfaozanbtbziikiqje
+  js-cookie: 3.0.1
   mongoose: 6.8.4
   next: 13.1.5_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
@@ -39,6 +42,9 @@ dependencies:
   react-slideshow-image: 4.2.0_react@18.2.0
   swr: 2.0.1_react@18.2.0
   typescript: 4.9.4
+
+devDependencies:
+  '@types/js-cookie': 3.0.2
 
 packages:
 
@@ -1471,6 +1477,10 @@ packages:
     resolution: {integrity: sha512-lB9lMjuqjtuJrx7/kOkqQBtllspPIN+96OvTCeJ2j5FEzinoAXTdAMFnDAQT1KVPRlnYfBrqxtqP66vDM40xxQ==}
     dev: false
 
+  /@types/js-cookie/3.0.2:
+    resolution: {integrity: sha512-6+0ekgfusHftJNYpihfkMu8BWdeHs9EOJuGcSofErjstGPfPGEu9yTu4t460lTzzAMl2cM5zngQJqPMHbbnvYA==}
+    dev: true
+
   /@types/json5/0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
     dev: false
@@ -2820,6 +2830,11 @@ packages:
 
   /isexe/2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
+    dev: false
+
+  /js-cookie/3.0.1:
+    resolution: {integrity: sha512-+0rgsUXZu4ncpPxRL+lNEptWMOWl9etvPHc/koSRp6MPwpRYAhmk0dUG00J4bxVV3r9uUzfo24wW0knS07SKSw==}
+    engines: {node: '>=12'}
     dev: false
 
   /js-sdsl/4.3.0:
