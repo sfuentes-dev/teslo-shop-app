@@ -19,6 +19,8 @@ const KidPage = () => {
         Kids Products
       </Typography>
 
+      <h1></h1>
+
       {isLoading ? <FullScreenLoading /> : <ProductList products={products} />}
     </ShopLayout>
   );
