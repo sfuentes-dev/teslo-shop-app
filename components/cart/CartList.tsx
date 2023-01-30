@@ -24,7 +24,7 @@ export const CartList = ({ editable = false }: Props) => {
 
   const onNewCartQuantityValue = (
     product: ICartProduct,
-    newQuantityValue: number
+    newQuantityValue: number,
   ) => {
     product.quantity = newQuantityValue;
     updateCartQuantity(product);
@@ -44,7 +44,7 @@ export const CartList = ({ editable = false }: Props) => {
               <CardActionArea>
                 <CardMedia
                   image={`/products/${product.image}`}
-                  component='img'
+                  component="img"
                   sx={{ borderRadius: '5px' }}
                 />
               </CardActionArea>
@@ -52,9 +52,9 @@ export const CartList = ({ editable = false }: Props) => {
           </Grid>
 
           <Grid item xs={7}>
-            <Box display='flex' flexDirection='column'>
-              <Typography variant='body1'>{product.title}</Typography>
-              <Typography variant='body1'>
+            <Box display="flex" flexDirection="column">
+              <Typography variant="body1">{product.title}</Typography>
+              <Typography variant="body1">
                 Size: <strong>{product.size}</strong>
               </Typography>
 
@@ -67,7 +67,7 @@ export const CartList = ({ editable = false }: Props) => {
                   }
                 />
               ) : (
-                <Typography variant='h6'>
+                <Typography variant="h6">
                   {product.quantity}{' '}
                   {product.quantity > 1 ? 'Products' : 'Product'}
                 </Typography>
@@ -78,16 +78,16 @@ export const CartList = ({ editable = false }: Props) => {
           <Grid
             item
             xs={2}
-            display='flex'
-            alignItems='center'
-            flexDirection='column'
+            display="flex"
+            alignItems="center"
+            flexDirection="column"
           >
-            <Typography variant='subtitle1'>${product.price}</Typography>
+            <Typography variant="subtitle1">${product.price}</Typography>
 
             {editable && (
               <Button
-                variant='text'
-                color='secondary'
+                variant="text"
+                color="secondary"
                 onClick={() => removeCartProduct(product)}
               >
                 Delete

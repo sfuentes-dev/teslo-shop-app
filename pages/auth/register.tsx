@@ -1,9 +1,10 @@
 import { useState, useContext } from 'react';
+import { GetServerSideProps } from 'next';
+import { getSession, signIn } from 'next-auth/react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { AuthContext } from '@/context';
 import { useForm } from 'react-hook-form';
-import { tesloApi } from '@/api';
 import { AuthLayout } from '@/components/layouts';
 import {
   Box,
@@ -49,7 +50,9 @@ const RegisterPage = () => {
       return;
     }
 
-    router.replace('/');
+    // const destination = router.query.p?.toString() || '/';
+    // router.replace(destination);
+    await signIn('credentials', { email, password });
   };
 
   return (
@@ -128,7 +131,14 @@ const RegisterPage = () => {
 
             <Grid item xs={12}>
               Already have an account?
-              <NextLink href='/auth/login' passHref>
+              <NextLink
+                href={
+                  router.query.p
+                    ? `/auth/login?p=${router.query.p}`
+                    : '/auth/login'
+                }
+                passHref
+              >
                 <Link component='span'> Log In</Link>
               </NextLink>
             </Grid>
@@ -140,3 +150,25 @@ const RegisterPage = () => {
 };
 
 export default RegisterPage;
+
+export const getServerSideProps: GetServerSideProps = async ({
+  req,
+  query,
+}) => {
+  const session = await getSession({ req });
+
+  const { p = '/' } = query;
+
+  if (session) {
+    return {
+      redirect: {
+        destination: p.toString(),
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
+};
