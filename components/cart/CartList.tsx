@@ -12,27 +12,30 @@ import {
 } from '@mui/material';
 
 import { ItemCounter } from '../ui';
-import { ICartProduct } from '@/interfaces';
+import { ICartProduct, IOrderItem } from '@/interfaces';
 
 interface Props {
   editable?: boolean;
+  products?: IOrderItem[];
 }
 
-export const CartList = ({ editable = false }: Props) => {
+export const CartList = ({ editable = false, products }: Props) => {
   const { cart, updateCartQuantity, removeCartProduct } =
     useContext(CartContext);
 
   const onNewCartQuantityValue = (
     product: ICartProduct,
-    newQuantityValue: number,
+    newQuantityValue: number
   ) => {
     product.quantity = newQuantityValue;
     updateCartQuantity(product);
   };
 
+  const productsToShow = products ? products : cart;
+
   return (
     <>
-      {cart.map((product) => (
+      {productsToShow.map((product) => (
         <Grid
           container
           spacing={2}
@@ -44,7 +47,7 @@ export const CartList = ({ editable = false }: Props) => {
               <CardActionArea>
                 <CardMedia
                   image={`/products/${product.image}`}
-                  component="img"
+                  component='img'
                   sx={{ borderRadius: '5px' }}
                 />
               </CardActionArea>
@@ -52,9 +55,9 @@ export const CartList = ({ editable = false }: Props) => {
           </Grid>
 
           <Grid item xs={7}>
-            <Box display="flex" flexDirection="column">
-              <Typography variant="body1">{product.title}</Typography>
-              <Typography variant="body1">
+            <Box display='flex' flexDirection='column'>
+              <Typography variant='body1'>{product.title}</Typography>
+              <Typography variant='body1'>
                 Size: <strong>{product.size}</strong>
               </Typography>
 
@@ -63,11 +66,11 @@ export const CartList = ({ editable = false }: Props) => {
                   currentValue={product.quantity}
                   maxValue={10}
                   updateQuantity={(value) =>
-                    onNewCartQuantityValue(product, value)
+                    onNewCartQuantityValue(product as ICartProduct, value)
                   }
                 />
               ) : (
-                <Typography variant="h6">
+                <Typography variant='h6'>
                   {product.quantity}{' '}
                   {product.quantity > 1 ? 'Products' : 'Product'}
                 </Typography>
@@ -78,17 +81,17 @@ export const CartList = ({ editable = false }: Props) => {
           <Grid
             item
             xs={2}
-            display="flex"
-            alignItems="center"
-            flexDirection="column"
+            display='flex'
+            alignItems='center'
+            flexDirection='column'
           >
-            <Typography variant="subtitle1">${product.price}</Typography>
+            <Typography variant='subtitle1'>${product.price}</Typography>
 
             {editable && (
               <Button
-                variant="text"
-                color="secondary"
-                onClick={() => removeCartProduct(product)}
+                variant='text'
+                color='secondary'
+                onClick={() => removeCartProduct(product as ICartProduct)}
               >
                 Delete
               </Button>
