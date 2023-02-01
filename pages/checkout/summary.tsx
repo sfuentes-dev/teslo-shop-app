@@ -117,13 +117,13 @@ const SummaryPage = () => {
                 >
                   Confirm Order
                 </Button>
-              </Box>
 
-              <Chip
-                color='error'
-                label={errorMessage}
-                sx={{ display: errorMessage ? 'flex' : 'none', mt: 2 }}
-              />
+                <Chip
+                  color='error'
+                  label={errorMessage}
+                  sx={{ display: errorMessage ? 'flex' : 'none', mt: 2 }}
+                />
+              </Box>
             </CardContent>
           </Card>
         </Grid>

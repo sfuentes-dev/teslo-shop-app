@@ -9,6 +9,7 @@ specifiers:
   '@mui/system': ^5.4.1
   '@mui/x-data-grid': ^5.17.20
   '@next/font': 13.1.5
+  '@paypal/react-paypal-js': ^7.8.2
   '@types/bcryptjs': ^2.4.2
   '@types/js-cookie': ^3.0.2
   '@types/jsonwebtoken': ^9.0.1
@@ -40,6 +41,7 @@ dependencies:
   '@mui/system': 5.11.5_gzalmy7izvhol7vh4xfy3dq6ua
   '@mui/x-data-grid': 5.17.20_f5fs7z5uaiqjtlhimixnmwploa
   '@next/font': 13.1.5
+  '@paypal/react-paypal-js': 7.8.2_biqbaboplfbrettd7655fr4n2y
   '@types/node': 18.11.18
   '@types/react': 18.0.27
   '@types/react-dom': 18.0.10
@@ -1672,6 +1674,30 @@ packages:
     resolution: {integrity: sha512-MSAs9t3Go7GUkMhpKC44T58DJ5KGk2vBo+h1cqQeqlMfdGkxaVB78ZWpv9gYi/g2fa4sopag9gJsNvS8XGgWJA==}
     dev: false
 
+  /@paypal/paypal-js/5.1.4:
+    resolution: {integrity: sha512-5ktge4DFOMu3rvFR4YWDiPm4wDUzOmghtCM9ZxgJyJCOJP+61IVYdrENysMay91T4GOZ10k2ywWcBN5shsGhLw==}
+    dependencies:
+      promise-polyfill: 8.3.0
+    dev: false
+
+  /@paypal/react-paypal-js/7.8.2_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-H6/qpAVkf57spCgvQPO7jNhtD58KdiywqKYmgmJm7Xnwu2wH03XfOsBjlINi1zM1VnzcyKhcliyBh9+uTAzI0g==}
+    peerDependencies:
+      react: '>=16.3.0'
+      react-dom: '>=16.3.0'
+    dependencies:
+      '@paypal/paypal-js': 5.1.4
+      '@paypal/sdk-constants': 1.0.128
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /@paypal/sdk-constants/1.0.128:
+    resolution: {integrity: sha512-6DB6M+mnf4B9PQR/dutI1aNMnXTbw9N+VklUbO0FkGzF7k0vr8lflfitDAKWh1hFJf8XzFCe+KbknMSpJMqiDw==}
+    dependencies:
+      hi-base32: 0.5.1
+    dev: false
+
   /@pkgr/utils/2.3.1:
     resolution: {integrity: sha512-wfzX8kc1PMyUILA+1Z/EqoE4UCXGy0iRGMhPwdfae1+f0OXlLqCk+By+aMzgJBzR9AzS4CDizioG6Ss1gvAFJw==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
@@ -2937,6 +2963,10 @@ packages:
       function-bind: 1.1.1
     dev: false
 
+  /hi-base32/0.5.1:
+    resolution: {integrity: sha512-EmBBpvdYh/4XxsnUybsPag6VikPYnN30td+vQk+GI3qpahVEG9+gTkG0aXVxTjBqQ5T6ijbWIu77O+C5WFWsnA==}
+    dev: false
+
   /hoist-non-react-statics/3.3.2:
     resolution: {integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==}
     dependencies:
@@ -3701,6 +3731,10 @@ packages:
 
   /pretty-format/3.8.0:
     resolution: {integrity: sha512-WuxUnVtlWL1OfZFQFuqvnvs6MiAGk9UNsBostyBOB0Is9wb5uRESevA6rnl/rkksXaGX3GzZhPup5d6Vp1nFew==}
+    dev: false
+
+  /promise-polyfill/8.3.0:
+    resolution: {integrity: sha512-H5oELycFml5yto/atYqmjyigJoAo3+OXwolYiH7OfQuYlAqhxNvTfiNMbV9hsC6Yp83yE5r2KTVmtrG6R9i6Pg==}
     dev: false
 
   /prop-types/15.8.1:
