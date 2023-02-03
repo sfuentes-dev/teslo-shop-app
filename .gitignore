@@ -40,3 +40,5 @@ mongodb/
 
 # enviroment variables
 .env
+.env.development
+.env.production
