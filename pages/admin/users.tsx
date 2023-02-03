@@ -3,7 +3,7 @@ import useSWR from 'swr';
 
 import { AdminLayout } from '../../components/layouts';
 
-import { tesloApi } from '@/pages/api';
+import { tesloApi } from '@/api';
 
 import {
   DataGrid,

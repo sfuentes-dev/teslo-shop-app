@@ -20,7 +20,7 @@ import CreditScoreOutlinedIcon from '@mui/icons-material/CreditScoreOutlined';
 import { getSession } from 'next-auth/react';
 import { dbOrders } from '@/database';
 import { IOrder } from '@/interfaces';
-import { tesloApi } from '@/pages/api';
+import { tesloApi } from '@/api';
 
 export type OrderResponseBody = {
   id: string;
