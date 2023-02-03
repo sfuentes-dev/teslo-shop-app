@@ -29,7 +29,7 @@ import {
 } from '@mui/material';
 import { Controller, useForm } from 'react-hook-form';
 import { IProduct } from '@/interfaces';
-import { tesloApi } from '@/api';
+import { tesloApi } from '@/pages/api';
 import { Product } from '@/models';
 
 const validTypes = ['shirts', 'pants', 'hoodies', 'hats'];

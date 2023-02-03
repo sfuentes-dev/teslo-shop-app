@@ -2,7 +2,7 @@ import { FC, useReducer, useEffect } from 'react';
 import { useSession, signOut } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
-import { tesloApi } from '@/api';
+import { tesloApi } from '@/pages/api';
 import Cookies from 'js-cookie';
 import { IUser } from '@/interfaces';
 import { AuthContext, authReducer } from './';
@@ -45,10 +45,7 @@ export const AuthProvider: FC<Props> = ({ children }) => {
     }
   };
 
-  const loginUser = async (
-    email: string,
-    password: string
-  ): Promise<boolean> => {
+  const loginUser = async (email: string, password: string): Promise<boolean> => {
     try {
       const { data } = await tesloApi.post('/user/login', { email, password });
       const { token, user } = data;
