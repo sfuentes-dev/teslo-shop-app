@@ -3,14 +3,9 @@ import useSWR from 'swr';
 
 import { AdminLayout } from '../../components/layouts';
 
-import { tesloApi } from '@/api';
+import { tesloApi } from '@/pages/api';
 
-import {
-  DataGrid,
-  GridColDef,
-  GridValueGetterParams,
-  GridRenderCellParams,
-} from '@mui/x-data-grid';
+import { DataGrid, GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
 
 import { Grid, MenuItem, Select } from '@mui/material';
 
@@ -83,11 +78,7 @@ const UsersPage = () => {
   }));
 
   return (
-    <AdminLayout
-      title='Users'
-      subTitle='User Maintenance'
-      icon={<PeopleOutlineIcon />}
-    >
+    <AdminLayout title='Users' subTitle='User Maintenance' icon={<PeopleOutlineIcon />}>
       <Grid container className='fadeIn'>
         <Grid item xs={12} sx={{ height: 650, width: '100%' }}>
           <DataGrid

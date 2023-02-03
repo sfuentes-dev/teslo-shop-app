@@ -20,16 +20,11 @@ import CreditScoreOutlinedIcon from '@mui/icons-material/CreditScoreOutlined';
 import { getSession } from 'next-auth/react';
 import { dbOrders } from '@/database';
 import { IOrder } from '@/interfaces';
-import { tesloApi } from '@/api';
+import { tesloApi } from '@/pages/api';
 
 export type OrderResponseBody = {
   id: string;
-  status:
-    | 'COMPLETED'
-    | 'SAVED'
-    | 'APPROVED'
-    | 'VOIDED'
-    | 'PAYER_ACTION_REQUIRED';
+  status: 'COMPLETED' | 'SAVED' | 'APPROVED' | 'VOIDED' | 'PAYER_ACTION_REQUIRED';
 };
 
 interface Props {
@@ -108,9 +103,7 @@ const OrderPage: NextPage<Props> = ({ order }) => {
               </Typography>
               <Typography>
                 {shippingAddress.address}{' '}
-                {shippingAddress.address2
-                  ? `, ${shippingAddress.address2}`
-                  : ''}
+                {shippingAddress.address2 ? `, ${shippingAddress.address2}` : ''}
               </Typography>
               <Typography>
                 {shippingAddress.city} {shippingAddress.zip}
@@ -181,10 +174,7 @@ const OrderPage: NextPage<Props> = ({ order }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async ({
-  req,
-  query,
-}) => {
+export const getServerSideProps: GetServerSideProps = async ({ req, query }) => {
   const { id = '' } = query;
 
   const session: any = await getSession({ req });
