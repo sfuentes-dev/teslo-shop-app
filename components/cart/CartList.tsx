@@ -2,14 +2,7 @@ import { useContext } from 'react';
 import Link from 'next/link';
 import { CartContext } from '../../context/cart/CartContext';
 
-import {
-  Box,
-  Button,
-  CardActionArea,
-  CardMedia,
-  Grid,
-  Typography,
-} from '@mui/material';
+import { Box, Button, CardActionArea, CardMedia, Grid, Typography } from '@mui/material';
 
 import { ItemCounter } from '../ui';
 import { ICartProduct, IOrderItem } from '@/interfaces';
@@ -20,13 +13,9 @@ interface Props {
 }
 
 export const CartList = ({ editable = false, products }: Props) => {
-  const { cart, updateCartQuantity, removeCartProduct } =
-    useContext(CartContext);
+  const { cart, updateCartQuantity, removeCartProduct } = useContext(CartContext);
 
-  const onNewCartQuantityValue = (
-    product: ICartProduct,
-    newQuantityValue: number
-  ) => {
+  const onNewCartQuantityValue = (product: ICartProduct, newQuantityValue: number) => {
     product.quantity = newQuantityValue;
     updateCartQuantity(product);
   };
@@ -36,17 +25,12 @@ export const CartList = ({ editable = false, products }: Props) => {
   return (
     <>
       {productsToShow.map((product) => (
-        <Grid
-          container
-          spacing={2}
-          sx={{ mb: 1 }}
-          key={product.slug + product.size}
-        >
+        <Grid container spacing={2} sx={{ mb: 1 }} key={product.slug + product.size}>
           <Grid item xs={3}>
             <Link href={`/product/${product.slug}`}>
               <CardActionArea>
                 <CardMedia
-                  image={`/products/${product.image}`}
+                  image={product.image}
                   component='img'
                   sx={{ borderRadius: '5px' }}
                 />
@@ -71,20 +55,13 @@ export const CartList = ({ editable = false, products }: Props) => {
                 />
               ) : (
                 <Typography variant='h6'>
-                  {product.quantity}{' '}
-                  {product.quantity > 1 ? 'Products' : 'Product'}
+                  {product.quantity} {product.quantity > 1 ? 'Products' : 'Product'}
                 </Typography>
               )}
             </Box>
           </Grid>
 
-          <Grid
-            item
-            xs={2}
-            display='flex'
-            alignItems='center'
-            flexDirection='column'
-          >
+          <Grid item xs={2} display='flex' alignItems='center' flexDirection='column'>
             <Typography variant='subtitle1'>${product.price}</Typography>
 
             {editable && (

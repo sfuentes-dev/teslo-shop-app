@@ -5,10 +5,7 @@ import { IProduct } from '../../../interfaces/products';
 
 type Data = { message: string } | IProduct;
 
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
+export default function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
   switch (req.method) {
     case 'GET':
       return getProductBySlug(req, res);
@@ -18,10 +15,7 @@ export default function handler(
   }
 }
 
-const getProductBySlug = async (
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) => {
+const getProductBySlug = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   await db.connect();
   const { slug } = req.query;
 
@@ -33,6 +27,10 @@ const getProductBySlug = async (
       message: 'Product no found',
     });
   }
+
+  product.images = product.images.map((image) => {
+    return image.includes('http') ? image : `${process.env.HOST_NAME}/products/${image}`;
+  });
 
   return res.status(200).json(product);
 };

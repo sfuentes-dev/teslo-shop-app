@@ -22,9 +22,7 @@ export const ProductCard = ({ product }: Props) => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   const productImage = useMemo(() => {
-    return isHovered
-      ? `/products/${product.images[1]}`
-      : `/products/${product.images[0]}`;
+    return isHovered ? product.images[1] : product.images[0];
   }, [isHovered, product.images]);
 
   return (
@@ -63,10 +61,7 @@ export const ProductCard = ({ product }: Props) => {
         </Link>
       </Card>
 
-      <Box
-        sx={{ mt: 1, display: isImageLoaded ? 'block' : 'none' }}
-        className='fadeIn'
-      >
+      <Box sx={{ mt: 1, display: isImageLoaded ? 'block' : 'none' }} className='fadeIn'>
         <Typography fontWeight={700}>{product.title}</Typography>
         <Typography fontWeight={500}>${product.price}</Typography>
       </Box>
